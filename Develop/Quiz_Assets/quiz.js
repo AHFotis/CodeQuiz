@@ -34,20 +34,21 @@ if (time === 0) {
 function displayQuestion() {
     answers.style.display = "inline-block";
 
-    var element = [];
+     var element = [];
 
-    for (i=0; i < 1; i++) {
-        element.push(qA[i]);
-    }
-    console.log(element);
-    console.log(element[0])
+    for (i=0; i < qA.length; i++) {
+        element = qA[Math.floor(Math.random() * qA.length)];
+  
+    // console.log(element);
+    // console.log(element[0])
 
-    question.textContent = element[0].question;
+    question.textContent = element.question;
     
-    answerOne.textContent = element[0].choice1;
-    answerTwo.textContent = element[0].choice2;
-    answerThree.textContent = element[0].choice3;
-    answerFour.textContent = element[0].choice4;
+    answerOne.textContent = element.choice1;
+    answerTwo.textContent = element.choice2;
+    answerThree.textContent = element.choice3;
+    answerFour.textContent = element.choice4;
+}
   
     // question.textContent = "Question Will Go Here";
 
