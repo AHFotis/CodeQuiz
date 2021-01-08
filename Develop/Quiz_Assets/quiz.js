@@ -34,43 +34,28 @@ if (time === 0) {
 function displayQuestion() {
     answers.style.display = "inline-block";
 
-     var element = [];
-
-    for (i=0; i < qA.length; i++) {
-        element = qA[Math.floor(Math.random() * qA.length)];
-  
-    // console.log(element);
-    // console.log(element[0])
-
-    question.textContent = element.question;
+    for (i=0; i < 1; i++) {
+    //     element = qA[Math.floor(Math.random() * qA.length)]
+    console.log(qA[i]);
+    question.textContent = qA[i].question;
     
-    answerOne.textContent = element.choice1;
-    answerTwo.textContent = element.choice2;
-    answerThree.textContent = element.choice3;
-    answerFour.textContent = element.choice4;
+    answerOne.textContent = qA[i].choice1;
+    answerTwo.textContent = qA[i].choice2;
+    answerThree.textContent = qA[i].choice3;
+    answerFour.textContent = qA[i].choice4;
 }
-  
-    // question.textContent = "Question Will Go Here";
-
-    
-    // answers.style.display = "inline-block";
-    // answerOne.textContent = "Answer 1";
-    // answerTwo.textContent = "Answer 2";
-    // answerThree.textContent = "Answer 3";
-    // answerFour.textContent = "Answer 4";
-
 }
 
 //Function to go to quiz
-go.addEventListener("click", function(event) {
-    
+go.addEventListener("click", function() {
+    qA.sort(() => Math.random() - 0.5);
     go.style.display = "none";
     beginTimer();
     displayQuestion();
 })
 
-answerButtons.addEventListener("click", function(event) {
-    if (event.target = answerThree) {
+answerOne.addEventListener("click", function(event) {
+    if (answerOne.value === qA[i].answer) {
         valid.textContent = "YAY YOU!!"
     }
     
@@ -78,6 +63,7 @@ answerButtons.addEventListener("click", function(event) {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
+        displayQuestion();
     } 
 })
 
@@ -88,7 +74,7 @@ var qA = [
         choice2: "bbbbbbbbbbbb",
         choice3: "ccccccccccccc",
         choice4: "dddddddddddddd",
-        answer: "choice1"
+        answer: "aaaaaaaaaaaa"
     },
 
     {
