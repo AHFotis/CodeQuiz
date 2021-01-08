@@ -14,6 +14,18 @@ header {
     display: inline;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: black;
+}
+
 .timer {
     display: inline;
     float: right;
@@ -32,7 +44,7 @@ header {
 }
 
 .quiz-body {
-    padding: 100px 10px;
+    padding: 70px 10px;
     font-size: 20px;
 }
 
@@ -41,4 +53,28 @@ header {
     width: 200px;
     padding: 10px;
     margin: 10px;
+    color: white;
+    background-color: purple;
+}
+
+.answers {
+    float: left;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 10px;
+}
+
+.answerOne,
+.answerTwo,
+.answerThree,
+.answerFour {
+    height: 40px;
+    width: 200px;
+    color: white;
+    background-color: purple;
 }

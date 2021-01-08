@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="navbar">
-                <div class="score-page">View Scores</div>
+                <div class="score-page"><a href="score.html">View Scores</a></div>
                 <div class="timer">Time: <span class="countdown"></span></div>
         </nav>
     </header>
@@ -23,8 +23,24 @@
             <div class="quiz-body">Think you're ready to be a developer? Take this quiz and see how you stack up against other students!</div>
             <button type="button" class="go" data-display="visible">QUIZ ME</button>
 
-            <!-- Quiz questions -->
-            <!-- <button type="button" class="go" data-display="visible">QUIZ ME</button> -->
+            <!--Question Buttons-->
+            <div class="answers">
+                <ul>
+                    <li>
+                        <button type="button" id="ans" class="answerOne" data-display="hidden"></button>
+                    </li>
+                    <li>
+                        <button type="button" id="ans" class="answerTwo" data-display="hidden"></button>
+                    </li>
+                    <li>
+                        <button type="button" id="ans" class="answerThree" data-display="hidden"></button>
+                    </li>
+                    <li>
+                        <button type="button" id="ans" class="answerFour" data-display="hidden"></button>
+                    </li>
+                </ul>
+                <div class="yes-no"></div>
+            </div>
             
 
         </div>
