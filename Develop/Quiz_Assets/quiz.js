@@ -10,11 +10,50 @@ var answerThree = document.querySelector(".answerThree");
 var answerFour = document.querySelector(".answerFour");
 var valid = document.querySelector(".yes-no");
 
+
+var qA = [
+    { 
+        question: "a",
+        choice1: "aaaaaaaaaaaa",
+        choice2: "bbbbbbbbbbbb",
+        choice3: "ccccccccccccc",
+        choice4: "dddddddddddddd",
+        answer: "aaaaaaaaaaaa"
+    },
+
+    {
+        question: "b",
+        choice1: "aaaaaaaaaaaa",
+        choice2: "bbbbbbbbbbbb",
+        choice3: "ccccccccccccc",
+        choice4: "dddddddddddddd",
+        answer: "bbbbbbbbbbbb"
+    },
+    {
+        question: "c",
+        choice1: "aaaaaaaaaaaa",
+        choice2: "bbbbbbbbbbbb",
+        choice3: "ccccccccccccc",
+        choice4: "dddddddddddddd",
+        answer: "ccccccccccccc"
+    }
+
+]
+
+
 var time = 60;
 var score = 0;
 
 counter.textContent = time;
 answers.style.display = "none";
+var currentQuiz = [];
+
+function getCurrentQuiz () {
+    currentQuiz.push(qA.sort(() => Math.random() - 0.5));
+}
+
+getCurrentQuiz();
+console.log(currentQuiz);
 
 //Function to start timer
 function beginTimer() {
@@ -35,14 +74,14 @@ function displayQuestion() {
     answers.style.display = "inline-block";
 
     for (i=0; i < 1; i++) {
-    //     element = qA[Math.floor(Math.random() * qA.length)]
     console.log(qA[i]);
-    question.textContent = qA[i].question;
+    question.textContent = currentQuiz[0][0].question;
+    console.log(currentQuiz[0])
     
-    answerOne.textContent = qA[i].choice1;
-    answerTwo.textContent = qA[i].choice2;
-    answerThree.textContent = qA[i].choice3;
-    answerFour.textContent = qA[i].choice4;
+    answerOne.textContent = currentQuiz[0][0].choice1;
+    answerTwo.textContent = currentQuiz[0][0].choice2;
+    answerThree.textContent = currentQuiz[0][0].choice3;
+    answerFour.textContent = currentQuiz[0][0].choice4;
 }
 }
 
@@ -55,10 +94,9 @@ go.addEventListener("click", function() {
 })
 
 answerOne.addEventListener("click", function(event) {
-    if (answerOne.value === qA[i].answer) {
+    if (answerOne.textContent === currentQuiz[0][0].answer) {
         valid.textContent = "YAY YOU!!"
     }
-    
    else {
         time = time - 10;
         counter.textContent = time;
@@ -67,31 +105,38 @@ answerOne.addEventListener("click", function(event) {
     } 
 })
 
-var qA = [
-    { 
-        question: "aaaaaaaaaaaa",
-        choice1: "aaaaaaaaaaaa",
-        choice2: "bbbbbbbbbbbb",
-        choice3: "ccccccccccccc",
-        choice4: "dddddddddddddd",
-        answer: "aaaaaaaaaaaa"
-    },
-
-    {
-        question: "bbbbbbbbbbb",
-        choice1: "aaaaaaaaaaaa",
-        choice2: "bbbbbbbbbbbb",
-        choice3: "ccccccccccccc",
-        choice4: "dddddddddddddd",
-        answer: "choice2"
-    },
-    {
-        question: "ccccccccccc",
-        choice1: "aaaaaaaaaaaa",
-        choice2: "bbbbbbbbbbbb",
-        choice3: "ccccccccccccc",
-        choice4: "dddddddddddddd",
-        answer: "choice3"
+answerTwo.addEventListener("click", function(event) {
+    if (answerTwo.textContent === currentQuiz[0][0].answer) {
+        valid.textContent = "YAY YOU!!"
     }
+   else {
+        time = time - 10;
+        counter.textContent = time;
+        valid.textContent = "WHOOPSIE DAISIES!";
+        displayQuestion();
+    } 
+})
 
-]
+answerThree.addEventListener("click", function(event) {
+    if (answerThree.textContent === currentQuiz[0][0].answer) {
+        valid.textContent = "YAY YOU!!"
+    }
+   else {
+        time = time - 10;
+        counter.textContent = time;
+        valid.textContent = "WHOOPSIE DAISIES!";
+        displayQuestion();
+    } 
+})
+
+answerFour.addEventListener("click", function(event) {
+    if (answerFour.textContent === currentQuiz[0][0].answer) {
+        valid.textContent = "YAY YOU!!"
+    }
+   else {
+        time = time - 10;
+        counter.textContent = time;
+        valid.textContent = "WHOOPSIE DAISIES!";
+        displayQuestion();
+    } 
+})
