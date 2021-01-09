@@ -12,7 +12,7 @@ var valid = document.querySelector(".yes-no");
 
 
 var qA = [
-    { 
+    {
         question: "a",
         choice1: "aaaaaaaaaaaa",
         choice2: "bbbbbbbbbbbb",
@@ -48,95 +48,120 @@ counter.textContent = time;
 answers.style.display = "none";
 var currentQuiz = [];
 
-function getCurrentQuiz () {
+
+//Function to set up order of questions per quiz
+function getCurrentQuiz() {
     currentQuiz.push(qA.sort(() => Math.random() - 0.5));
 }
 
 getCurrentQuiz();
 console.log(currentQuiz);
 
+function endMessage() {
+    counter.textContent = "DONE";
+}
+
 //Function to start timer
 function beginTimer() {
-var timerGo = setInterval(function() {
-    time--;
-    counter.textContent = time;
+    var timerGo = setInterval(function () {
+        time--;
+        counter.textContent = time;
 
-if (time === 0) {
-    clearInterval(timerGo);
-    //Add Message for Timeout
-}    
+        if (time <= 0) {
+            clearInterval(timerGo);
+            endMessage();
+            //Add Message for Timeout
+        }
 
-}, 1000)    
+    }, 1000)
 }
+
+//How do I create a function where the first index moves to the end?
+//Write function that clears page/empty innerHTML of question container - 
 
 //Display Question 1
-function displayQuestion() {
+function displayQuestion(arr) {
     answers.style.display = "inline-block";
 
-    for (i=0; i < 1; i++) {
-    console.log(qA[i]);
-    question.textContent = currentQuiz[0][0].question;
-    console.log(currentQuiz[0])
-    
-    answerOne.textContent = currentQuiz[0][0].choice1;
-    answerTwo.textContent = currentQuiz[0][0].choice2;
-    answerThree.textContent = currentQuiz[0][0].choice3;
-    answerFour.textContent = currentQuiz[0][0].choice4;
-}
+    for (i = 0; i < 1; i++) {
+
+        question.textContent = arr[0][0].question;
+
+        answerOne.textContent = arr[0][0].choice1;
+        answerTwo.textContent = arr[0][0].choice2;
+        answerThree.textContent = arr[0][0].choice3;
+        answerFour.textContent = arr[0][0].choice4;
+    }
 }
 
+
 //Function to go to quiz
-go.addEventListener("click", function() {
+go.addEventListener("click", function () {
     qA.sort(() => Math.random() - 0.5);
     go.style.display = "none";
     beginTimer();
-    displayQuestion();
+    displayQuestion(currentQuiz);
 })
 
-answerOne.addEventListener("click", function(event) {
+answerOne.addEventListener("click", function (event) {
     if (answerOne.textContent === currentQuiz[0][0].answer) {
         valid.textContent = "YAY YOU!!"
+        currentQuiz[0].push(currentQuiz[0].shift());
+        displayQuestion(currentQuiz);
     }
-   else {
+    else {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
-        displayQuestion();
-    } 
+        currentQuiz[0].push(currentQuiz[0].shift());
+        displayQuestion(currentQuiz);
+    }
 })
 
-answerTwo.addEventListener("click", function(event) {
+
+//Set Timeout in these functions
+answerTwo.addEventListener("click", function (event) {
     if (answerTwo.textContent === currentQuiz[0][0].answer) {
         valid.textContent = "YAY YOU!!"
+        currentQuiz[0].push(currentQuiz[0].shift());
+        displayQuestion(currentQuiz);
     }
-   else {
+    else {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
-        displayQuestion();
-    } 
+        currentQuiz[0].push(currentQuiz[0].shift());
+        displayQuestion(currentQuiz);
+    }
 })
 
-answerThree.addEventListener("click", function(event) {
+answerThree.addEventListener("click", function (event) {
     if (answerThree.textContent === currentQuiz[0][0].answer) {
         valid.textContent = "YAY YOU!!"
+        currentQuiz[0].push(currentQuiz[0].shift());
+        displayQuestion(currentQuiz);
     }
-   else {
+    else {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
-        displayQuestion();
-    } 
+        currentQuiz[0].push(currentQuiz[0].shift());
+        displayQuestion(currentQuiz);
+    }
 })
 
-answerFour.addEventListener("click", function(event) {
+answerFour.addEventListener("click", function (event) {
     if (answerFour.textContent === currentQuiz[0][0].answer) {
         valid.textContent = "YAY YOU!!"
+        currentQuiz[0].push(currentQuiz[0].shift());
+        displayQuestion(currentQuiz);
     }
-   else {
+    else {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
-        displayQuestion();
-    } 
+        currentQuiz[0].push(currentQuiz[0].shift());
+        displayQuestion(currentQuiz);
+    }
 })
+
