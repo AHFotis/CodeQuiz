@@ -79,7 +79,7 @@ function beginTimer() {
 }
 
 
-//Tutor for: timer going below zero; clarifying how scoring should work, how to keep event listeners from working until question changes
+//Tutor for: timer going below zero; clarifying how scoring should work, why github pages sucks so hard
 //var removed = array.splice(0,2) = how to splice if you need that.
 
 
