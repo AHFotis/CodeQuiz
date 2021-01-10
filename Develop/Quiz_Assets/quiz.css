@@ -48,6 +48,8 @@ a:visited {
     font-size: 20px;
 }
 
+/* Button Styling */
+
 .go {
     height: 60px;
     width: 200px;
@@ -55,6 +57,10 @@ a:visited {
     margin: 10px;
     color: white;
     background-color: purple;
+}
+
+.go:hover {
+    opacity: 75%;
 }
 
 .answers {
@@ -78,5 +84,6 @@ li {
 }
 
 #ans:hover {
-   opacity: 50%;
+   opacity: 75%;
 }
+

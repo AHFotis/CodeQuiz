@@ -3,6 +3,7 @@ var title = document.querySelector(".quiz-header");
 var question = document.querySelector(".quiz-body");
 var go = document.querySelector(".go");
 var answers = document.querySelector(".answers");
+var answerButtons = document.querySelector("#ans");
 var answerOne = document.querySelector(".answerOne");
 var answerTwo = document.querySelector(".answerTwo");
 var answerThree = document.querySelector(".answerThree");
@@ -50,6 +51,7 @@ var currentQuiz = [];
 finalScore.style.display = "none"
 
 
+
 //Function to set up order of questions per quiz
 function getCurrentQuiz() {
     currentQuiz.push(questionAnswer.sort(() => Math.random() - 0.5));
@@ -58,13 +60,15 @@ function getCurrentQuiz() {
 getCurrentQuiz();
 console.log(currentQuiz);
 
+
+
 //Function to start timer
 function beginTimer() {
     var timerGo = setInterval(function () {
         time--;
         counter.textContent = time;
 
-        if (time === 0 || time < 0) {
+        if (time === 0 || time < 0 ) {
             clearInterval(timerGo);
             endMessage();
         }
@@ -72,8 +76,10 @@ function beginTimer() {
     }, 1000)
 }
 
+
 //Tutor for: timer going below zero; clarifying how scoring should work, how to keep event listeners from working until question changes
 //var removed = array.splice(0,2) = how to splice if you need that.
+
 
 //Display Questions
 function displayQuestion(arr) {
@@ -90,20 +96,7 @@ function displayQuestion(arr) {
     }
 }
 
-function rightAnswer () {
-    score++;
-    valid.textContent = "YAY YOU!!"
-
-}
-
-function wrongAnswer() {
-    time = time - 10;
-    counter.textContent = time;
-    valid.textContent = "WHOOPSIE DAISIES!";
-
-}
-
-function nextQuestion() {
+function alertTimer() {
     var buffer = 1;
     var reset = setInterval(function() {
 
@@ -112,11 +105,25 @@ function nextQuestion() {
         if (buffer === 0) {
             clearInterval(reset);
             valid.textContent = " ";
-            currentQuiz[0].push(currentQuiz[0].shift());
-            displayQuestion(currentQuiz);
         }
 
     }, 750)
+}
+
+function rightAnswer () {
+    score++;
+    valid.textContent = "YAY YOU!!"
+}
+
+function wrongAnswer () {
+    time = time - 10;
+    counter.textContent = time;
+    valid.textContent = "WHOOPSIE DAISIES!";
+}
+
+function nextQuestion () {
+    currentQuiz[0].push(currentQuiz[0].shift());
+    displayQuestion(currentQuiz);
 }
 
 //Game Over
@@ -130,7 +137,7 @@ function endMessage() {
     
 }
 
-//Function to go to quiz
+//Event Listeners
 go.addEventListener("click", function () {
     go.style.display = "none";
     beginTimer();
@@ -140,52 +147,59 @@ go.addEventListener("click", function () {
 answerOne.addEventListener("click", function () {
     if (answerOne.textContent === currentQuiz[0][0].answer) {
         rightAnswer();
+        alertTimer();
         nextQuestion();
         
     }
     else {
-        wrongAnswer();
+        time = time - 10;
+        counter.textContent = time;
+        valid.textContent = "WHOOPSIE DAISIES!";
+        alertTimer();
         nextQuestion();
         
     }
 })
 
 
-//Set Timeout in these functions
+// Set Timeout in these functions
 answerTwo.addEventListener("click", function () {
     if (answerTwo.textContent === currentQuiz[0][0].answer) {
         rightAnswer();
+        alertTimer();
         nextQuestion();
         
     }
     else {
         wrongAnswer();
+        alertTimer();
         nextQuestion();
-        
     }
 })
 
 answerThree.addEventListener("click", function () {
     if (answerThree.textContent === currentQuiz[0][0].answer) {
         rightAnswer();
+        alertTimer();
         nextQuestion();
-        
     }
     else {
         wrongAnswer();
+        alertTimer();
         nextQuestion();
-        
     }
 })
 
 answerFour.addEventListener("click", function () {
     if (answerFour.textContent === currentQuiz[0][0].answer) {
         rightAnswer();
+        alertTimer();
         nextQuestion();
         
     }
     else {
         wrongAnswer();
+        alertTimer();
         nextQuestion();
         
     }
