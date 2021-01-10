@@ -3,13 +3,15 @@ var title = document.querySelector(".quiz-header");
 var question = document.querySelector(".quiz-body");
 var go = document.querySelector(".go");
 var answers = document.querySelector(".answers");
-var answerButtons = document.querySelector("#ans");
+// var answerButtons = document.querySelector("#ans");
 var answerOne = document.querySelector(".answerOne");
 var answerTwo = document.querySelector(".answerTwo");
 var answerThree = document.querySelector(".answerThree");
 var answerFour = document.querySelector(".answerFour");
 var valid = document.querySelector(".yes-no");
 var finalScore = document.querySelector(".score");
+var submitScore = document.querySelector(".submit");
+var nameInput = document.querySelector(".name");
 
 
 var questionAnswer = [
@@ -128,6 +130,7 @@ function nextQuestion () {
 
 //Game Over
 function endMessage() {
+    localStorage.setItem("score", score);
     counter.textContent = "DONE";
     answers.style.display = "none";
     finalScore.style.display = "inline";
@@ -205,4 +208,10 @@ answerFour.addEventListener("click", function () {
     }
 })
 
-console.log(score);
+submitScore.addEventListener("click", function () {
+
+    var name = nameInput.value;
+    localStorage.setItem("Name", name);
+    nameInput.value = " ";
+
+})
