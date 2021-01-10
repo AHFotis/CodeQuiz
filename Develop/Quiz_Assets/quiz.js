@@ -3,7 +3,7 @@ var title = document.querySelector(".quiz-header");
 var question = document.querySelector(".quiz-body");
 var go = document.querySelector(".go");
 var answers = document.querySelector(".answers");
-// var answerButtons = document.querySelector("#ans");
+// var answerButtons = document.querySelectorAll("#ans");
 var answerOne = document.querySelector(".answerOne");
 var answerTwo = document.querySelector(".answerTwo");
 var answerThree = document.querySelector(".answerThree");
@@ -79,8 +79,9 @@ function beginTimer() {
 }
 
 
-//Tutor for: timer going below zero; clarifying how scoring should work, why github pages sucks so hard
+//Tutor for: timer going below zero; clarifying how scoring should work, multiple names on scorelist
 //var removed = array.splice(0,2) = how to splice if you need that.
+//JSON stringify and parse may help with score problem
 
 
 //Display Questions
@@ -147,6 +148,7 @@ go.addEventListener("click", function () {
     displayQuestion(currentQuiz);
 })
 
+
 answerOne.addEventListener("click", function () {
     if (answerOne.textContent === currentQuiz[0][0].answer) {
         rightAnswer();
@@ -165,7 +167,6 @@ answerOne.addEventListener("click", function () {
 })
 
 
-// Set Timeout in these functions
 answerTwo.addEventListener("click", function () {
     if (answerTwo.textContent === currentQuiz[0][0].answer) {
         rightAnswer();

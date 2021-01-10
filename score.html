@@ -6,28 +6,33 @@
     <title>Code Quiz</title>
 
     <!--CSS-->
-    <link rel="stylesheet" href="Quiz_Assets/quiz.css">
+    <link rel="stylesheet" href="Develop/Score_Assets/score.css">
 </head>
 
 <body>
     <header>
         <nav class="navbar">
-                <div class="Heading">Hall of High Scores</div>
+                <div class="heading">Hall of High Scores</div>
         </nav>
     </header>
 
     <main>
         <div class="box">
-            <h1 class="quiz-header">Quiz Your Code Knowledge</h1>
-            <div class="quiz-body">Think you're ready to be a developer? Take this quiz and see how you stack up against other students!</div>
-            <button type="button" class="go" data-display="visible">QUIZ ME</button>
+            <h1 class="quiz-header">High Scores</h1>
+
+            <div class="score-container">
+                <ol class="scores">
+                
+                </ol>
+            </div>
+           
 
             <!--Question Buttons-->
             
             <div class="score">
-                <p>Type name here:</p>
-                <input type="text" class="name" placeholder="Type name here">
-                <button type="button" class="submit">Submit Score</button>
+                <a href="index.html">
+                    <button type="button" id="scoreBtn" class="back">Back to Quiz</button></a>
+                <button type="button" id="scoreBtn" class="submit">Clear Scores</button>
             </div>
         
         </div>
@@ -35,6 +40,6 @@
     </main>
 
     <!--JS-->
-    <script src="Quiz_Assets/quiz.js"></script>
+    <script src="Develop/Score_Assets/score.js"></script>
 </body>
 </html>

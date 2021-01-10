@@ -1,0 +1,63 @@
+/* Header Styling */
+header {
+    padding: 20px;
+    border: 5px solid purple;
+}
+
+.nav {
+    display: inline;
+}
+
+.heading {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+a:visited {
+    color: white;
+}
+
+
+/* Body Styling */
+
+.box {
+    margin: 100px auto;
+    height: 500px;
+    width: 500px;
+    border: 5px solid purple;
+    text-align: center;
+}
+
+.score-container {
+    padding: 120px 10px;
+    font-size: 20px;
+    
+}
+.score-list {
+    height: 20px;
+    background-color: rgb(209, 180, 209);
+    text-align: left;
+}
+
+/* Button Styling */
+
+#scoreBtn {
+    height: 60px;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    background-color: purple;
+}
+
+#scoreBtn:hover {
+    opacity: 75%;
+}
+
