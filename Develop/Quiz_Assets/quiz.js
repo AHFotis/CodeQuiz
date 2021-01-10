@@ -3,7 +3,7 @@ var title = document.querySelector(".quiz-header");
 var question = document.querySelector(".quiz-body");
 var go = document.querySelector(".go");
 var answers = document.querySelector(".answers");
-var answerButtons = document.querySelector("#ans");
+// var answerButtons = document.querySelector("#ans");
 var answerOne = document.querySelector(".answerOne");
 var answerTwo = document.querySelector(".answerTwo");
 var answerThree = document.querySelector(".answerThree");
@@ -11,7 +11,7 @@ var answerFour = document.querySelector(".answerFour");
 var valid = document.querySelector(".yes-no");
 
 
-var qA = [
+var questionAnswer = [
     {
         question: "a",
         choice1: "aaaaaaaaaaaa",
@@ -51,15 +51,13 @@ var currentQuiz = [];
 
 //Function to set up order of questions per quiz
 function getCurrentQuiz() {
-    currentQuiz.push(qA.sort(() => Math.random() - 0.5));
+    currentQuiz.push(questionAnswer.sort(() => Math.random() - 0.5));
 }
 
 getCurrentQuiz();
 console.log(currentQuiz);
 
-function endMessage() {
-    counter.textContent = "DONE";
-}
+
 
 //Function to start timer
 function beginTimer() {
@@ -76,10 +74,11 @@ function beginTimer() {
     }, 1000)
 }
 
-//How do I create a function where the first index moves to the end?
-//Write function that clears page/empty innerHTML of question container - 
 
-//Display Question 1
+//Tutor for: timer going below zero; clarifying how scoring should work.
+//var removed = array.splice(0,2) = how to splice if you need that.
+
+//Display Questions
 function displayQuestion(arr) {
     answers.style.display = "inline-block";
 
@@ -94,74 +93,102 @@ function displayQuestion(arr) {
     }
 }
 
+function nextQuestion() {
+    var buffer = 1;
+    var reset = setInterval(function() {
+
+        buffer -= 1;
+        
+        if (buffer === 0) {
+            clearInterval(reset);
+            valid.textContent = " ";
+            currentQuiz[0].push(currentQuiz[0].shift());
+            displayQuestion(currentQuiz);
+        }
+
+    }, 750)
+}
+
+//Game Over
+function endMessage() {
+    counter.textContent = "DONE";
+    answers.style.display = "none";
+    title.textContent = "Game Over";
+    question.textContent = "Well done! Your score is " + score
++ "! Please enter your name and score below!"
+}
 
 //Function to go to quiz
 go.addEventListener("click", function () {
-    qA.sort(() => Math.random() - 0.5);
     go.style.display = "none";
     beginTimer();
     displayQuestion(currentQuiz);
 })
 
-answerOne.addEventListener("click", function (event) {
+answerOne.addEventListener("click", function () {
     if (answerOne.textContent === currentQuiz[0][0].answer) {
+        score++;
         valid.textContent = "YAY YOU!!"
-        currentQuiz[0].push(currentQuiz[0].shift());
-        displayQuestion(currentQuiz);
+        nextQuestion();
+        
     }
     else {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
-        currentQuiz[0].push(currentQuiz[0].shift());
-        displayQuestion(currentQuiz);
+        nextQuestion();
+        
     }
 })
 
 
 //Set Timeout in these functions
-answerTwo.addEventListener("click", function (event) {
+answerTwo.addEventListener("click", function () {
     if (answerTwo.textContent === currentQuiz[0][0].answer) {
+        score++;
         valid.textContent = "YAY YOU!!"
-        currentQuiz[0].push(currentQuiz[0].shift());
-        displayQuestion(currentQuiz);
+        nextQuestion();
+        
     }
     else {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
-        currentQuiz[0].push(currentQuiz[0].shift());
-        displayQuestion(currentQuiz);
+        nextQuestion();
+        
     }
 })
 
-answerThree.addEventListener("click", function (event) {
+answerThree.addEventListener("click", function () {
     if (answerThree.textContent === currentQuiz[0][0].answer) {
+        score++;
         valid.textContent = "YAY YOU!!"
-        currentQuiz[0].push(currentQuiz[0].shift());
-        displayQuestion(currentQuiz);
+        nextQuestion();
+        
     }
     else {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
-        currentQuiz[0].push(currentQuiz[0].shift());
-        displayQuestion(currentQuiz);
+        nextQuestion();
+        
     }
 })
 
-answerFour.addEventListener("click", function (event) {
+answerFour.addEventListener("click", function () {
     if (answerFour.textContent === currentQuiz[0][0].answer) {
+        score++;
         valid.textContent = "YAY YOU!!"
-        currentQuiz[0].push(currentQuiz[0].shift());
-        displayQuestion(currentQuiz);
+        nextQuestion();
+        
     }
     else {
         time = time - 10;
         counter.textContent = time;
         valid.textContent = "WHOOPSIE DAISIES!";
-        currentQuiz[0].push(currentQuiz[0].shift());
-        displayQuestion(currentQuiz);
+        nextQuestion();
+        
     }
 })
 
+console.log(score);
