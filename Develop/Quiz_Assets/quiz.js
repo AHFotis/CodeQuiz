@@ -3,12 +3,12 @@ var title = document.querySelector(".quiz-header");
 var question = document.querySelector(".quiz-body");
 var go = document.querySelector(".go");
 var answers = document.querySelector(".answers");
-// var answerButtons = document.querySelector("#ans");
 var answerOne = document.querySelector(".answerOne");
 var answerTwo = document.querySelector(".answerTwo");
 var answerThree = document.querySelector(".answerThree");
 var answerFour = document.querySelector(".answerFour");
 var valid = document.querySelector(".yes-no");
+var finalScore = document.querySelector(".score");
 
 
 var questionAnswer = [
@@ -47,6 +47,7 @@ var score = 0;
 counter.textContent = time;
 answers.style.display = "none";
 var currentQuiz = [];
+finalScore.style.display = "none"
 
 
 //Function to set up order of questions per quiz
@@ -57,25 +58,21 @@ function getCurrentQuiz() {
 getCurrentQuiz();
 console.log(currentQuiz);
 
-
-
 //Function to start timer
 function beginTimer() {
     var timerGo = setInterval(function () {
         time--;
         counter.textContent = time;
 
-        if (time <= 0) {
+        if (time === 0 || time < 0) {
             clearInterval(timerGo);
             endMessage();
-            //Add Message for Timeout
         }
 
     }, 1000)
 }
 
-
-//Tutor for: timer going below zero; clarifying how scoring should work.
+//Tutor for: timer going below zero; clarifying how scoring should work, how to keep event listeners from working until question changes
 //var removed = array.splice(0,2) = how to splice if you need that.
 
 //Display Questions
@@ -91,6 +88,19 @@ function displayQuestion(arr) {
         answerThree.textContent = arr[0][0].choice3;
         answerFour.textContent = arr[0][0].choice4;
     }
+}
+
+function rightAnswer () {
+    score++;
+    valid.textContent = "YAY YOU!!"
+
+}
+
+function wrongAnswer() {
+    time = time - 10;
+    counter.textContent = time;
+    valid.textContent = "WHOOPSIE DAISIES!";
+
 }
 
 function nextQuestion() {
@@ -113,9 +123,11 @@ function nextQuestion() {
 function endMessage() {
     counter.textContent = "DONE";
     answers.style.display = "none";
+    finalScore.style.display = "inline";
     title.textContent = "Game Over";
     question.textContent = "Well done! Your score is " + score
-+ "! Please enter your name and score below!"
++ "! Please enter your name and score below!";
+    
 }
 
 //Function to go to quiz
@@ -127,15 +139,12 @@ go.addEventListener("click", function () {
 
 answerOne.addEventListener("click", function () {
     if (answerOne.textContent === currentQuiz[0][0].answer) {
-        score++;
-        valid.textContent = "YAY YOU!!"
+        rightAnswer();
         nextQuestion();
         
     }
     else {
-        time = time - 10;
-        counter.textContent = time;
-        valid.textContent = "WHOOPSIE DAISIES!";
+        wrongAnswer();
         nextQuestion();
         
     }
@@ -145,15 +154,12 @@ answerOne.addEventListener("click", function () {
 //Set Timeout in these functions
 answerTwo.addEventListener("click", function () {
     if (answerTwo.textContent === currentQuiz[0][0].answer) {
-        score++;
-        valid.textContent = "YAY YOU!!"
+        rightAnswer();
         nextQuestion();
         
     }
     else {
-        time = time - 10;
-        counter.textContent = time;
-        valid.textContent = "WHOOPSIE DAISIES!";
+        wrongAnswer();
         nextQuestion();
         
     }
@@ -161,15 +167,12 @@ answerTwo.addEventListener("click", function () {
 
 answerThree.addEventListener("click", function () {
     if (answerThree.textContent === currentQuiz[0][0].answer) {
-        score++;
-        valid.textContent = "YAY YOU!!"
+        rightAnswer();
         nextQuestion();
         
     }
     else {
-        time = time - 10;
-        counter.textContent = time;
-        valid.textContent = "WHOOPSIE DAISIES!";
+        wrongAnswer();
         nextQuestion();
         
     }
@@ -177,15 +180,12 @@ answerThree.addEventListener("click", function () {
 
 answerFour.addEventListener("click", function () {
     if (answerFour.textContent === currentQuiz[0][0].answer) {
-        score++;
-        valid.textContent = "YAY YOU!!"
+        rightAnswer();
         nextQuestion();
         
     }
     else {
-        time = time - 10;
-        counter.textContent = time;
-        valid.textContent = "WHOOPSIE DAISIES!";
+        wrongAnswer();
         nextQuestion();
         
     }

@@ -69,12 +69,14 @@ li {
     margin: 10px;
 }
 
-.answerOne,
-.answerTwo,
-.answerThree,
-.answerFour {
+#ans {
     height: 40px;
     width: 200px;
     color: white;
     background-color: purple;
+    outline: none;
+}
+
+#ans:hover {
+   opacity: 50%;
 }
