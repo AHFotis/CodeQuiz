@@ -2,10 +2,13 @@
     font-family: 'PT Sans Narrow', sans-serif;
 }
 
+
+    
 /* Header Styling */
 header {
     padding: 20px;
     border: 5px solid purple;
+    background-color: white;
 }
 
 .nav {
@@ -40,12 +43,18 @@ a:visited {
 
 /* Body Styling */
 
+body {
+    background: url("../Images/purple.jpg") center center fixed;
+    background-size: cover;
+}
+
 .box {
     margin: 100px auto;
     height: 500px;
     width: 500px;
     border: 5px solid purple;
     text-align: center;
+    background-color: white;
 }
 
 .quiz-header {
