@@ -119,7 +119,11 @@ function rightAnswer () {
 }
 
 function wrongAnswer () {
-    time = time - 10;
+    if (time <= 10) {
+        time = 0;
+    } else {
+        time -= 10;
+    }
     counter.textContent = time;
     valid.textContent = "WHOOPSIE DAISIES!";
 }
