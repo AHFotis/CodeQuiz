@@ -1,3 +1,7 @@
+* {
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
 /* Header Styling */
 header {
     padding: 20px;
@@ -10,7 +14,7 @@ header {
 
 .score-page {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 900;
     display: inline;
 }
 
@@ -44,19 +48,26 @@ a:visited {
     text-align: center;
 }
 
+.quiz-header {
+    font-size: 40px;
+    
+}
+
 .quiz-body {
     padding: 70px 10px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 /* Button Styling */
 
-.go {
+.go,
+.submit {
     height: 60px;
     width: 200px;
     padding: 10px;
     margin: 10px;
     color: white;
+    font-size: 20px;
     background-color: purple;
 }
 
@@ -66,6 +77,7 @@ a:visited {
 
 .answers {
     float: left;
+    margin-bottom: 5px;
 }
 
 ul {
@@ -82,9 +94,40 @@ li {
     color: white;
     background-color: purple;
     outline: none;
+    font-size: 20px;
 }
 
 #ans:hover {
    opacity: 75%;
 }
 
+.yes-no {
+    font-size: 20px;
+    font-weight: bold;
+    color: purple;
+    
+}
+
+/* Submit page */
+
+p {
+    display: inline;
+    font-size: 18px;
+}
+.submit {
+    display: block;
+    height: 45px;
+    width: 150px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 5px;
+    color: white;
+    font-size: 18px;
+    background-color: purple;
+}
+
+.name {
+    height: 20px;
+    width: 200px;
+    font-size: 18px;
+}

@@ -6,26 +6,26 @@ var scoreList = document.querySelector(".scores");
 var clear = document.querySelector(".submit");
 
 
+function arrayClean() {
 
-
-function arrayClean () {
-
-        for (i=0; i < list.length; i++) {
+    for (i = 0; i < list.length; i++) {
 
         if (list[i] === "," || list[i] === "") {
             list.splice(i, 1);
         }
-    }  
-      
+
+    }
+
 }
 
-function newEntry (arr) {
+function newEntry(arr) {
 
-    for (i=0; i < arr.length; i++) {
+    for (i = 0; i < arr.length; i++) {
         var content = arr[i];
         console.log(arr[i]);
         var entry = document.createElement("li");
         entry.setAttribute("class", "score-list");
+        entry.setAttribute("style", "margin: 5px");
         entry.textContent = content;
         scoreList.prepend(entry);
     }
@@ -33,11 +33,11 @@ function newEntry (arr) {
 }
 
 
-clear.addEventListener("click", function (){
+clear.addEventListener("click", function () {
     localStorage.removeItem("array");
     console.log(fullScores);
     scoreList.innerHTML = "";
-    
+
 })
 
 arrayClean();
