@@ -135,7 +135,6 @@ function nextQuestion () {
 
 //Game Over
 function endMessage() {
-    localStorage.setItem("score", score);
     counter.textContent = "DONE";
     answers.style.display = "none";
     finalScore.style.display = "inline";
@@ -161,9 +160,7 @@ answerOne.addEventListener("click", function () {
         
     }
     else {
-        time = time - 10;
-        counter.textContent = time;
-        valid.textContent = "WHOOPSIE DAISIES!";
+        wrongAnswer();
         alertTimer();
         nextQuestion();
         
@@ -215,8 +212,20 @@ answerFour.addEventListener("click", function () {
 
 submitScore.addEventListener("click", function () {
 
-    var name = nameInput.value;
-    localStorage.setItem("Name", name);
+    var getName = localStorage.getItem("array");
+
+    var name = nameInput.value + "-" + score + " ";
+    
+    var newArray = [];
+
+
+    if (getName !== null) {
+       newArray.push(getName);
+    }
+
+    newArray.push(name);
+    
+    localStorage.setItem("array", newArray);
     nameInput.value = " ";
 
 })

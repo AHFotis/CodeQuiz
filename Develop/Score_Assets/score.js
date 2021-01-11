@@ -1,21 +1,45 @@
-var score = localStorage.getItem("score");
-var playerName = localStorage.getItem("Name");
+var fullScores = localStorage.getItem("array");
+var list = fullScores.split(" ");
+console.log(list);
 
 var scoreList = document.querySelector(".scores");
 var clear = document.querySelector(".submit");
 
-var entry = document.createElement("li");
-entry.setAttribute("class", "score-list");
-entry.innerHTML= playerName + " - " + score;
-scoreList.prepend(entry);
 
-function newEntry () {
-entry.innerHTML= playerName + "     " + score;
-scoreList.prepend(entry);
+
+
+function arrayClean () {
+
+        for (i=0; i < list.length; i++) {
+
+        if (list[i] === "," || list[i] === "") {
+            list.splice(i, 1);
+        }
+    }  
+      
+}
+
+function newEntry (arr) {
+
+    for (i=0; i < arr.length; i++) {
+        var content = arr[i];
+        console.log(arr[i]);
+        var entry = document.createElement("li");
+        entry.setAttribute("class", "score-list");
+        entry.textContent = content;
+        scoreList.prepend(entry);
+    }
+
+}
+
 
 clear.addEventListener("click", function (){
-    scoreList.remove(entry);
+    localStorage.removeItem("array");
+    console.log(fullScores);
+    scoreList.innerHTML = "";
+    
 })
-}
-newEntry();
+
+arrayClean();
+newEntry(list);
 

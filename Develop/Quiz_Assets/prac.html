@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+function submitScore() {
+
+fullScores = JSON.parse(localStorage.getItem("fullScores"));
+
+var name = "Jerry";
+var score = "40";
+
+var obj = {};
+obj["Name"] = name;
+obj["Score"] = score;
+
+fullScores.push(obj);
+
+localStorage.setItem("fullScores", JSON.stringify(fullScores));
+
+console.log(obj);
+
+}
+submitScore();
+    </script>
+</body>
+</html>
