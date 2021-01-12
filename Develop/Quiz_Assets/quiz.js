@@ -17,31 +17,127 @@ var nameInput = document.querySelector(".name");
 
 var questionAnswer = [
     {
-        question: "a",
-        choice1: "aaaaaaaaaaaa",
-        choice2: "bbbbbbbbbbbb",
-        choice3: "ccccccccccccc",
-        choice4: "dddddddddddddd",
-        answer: "aaaaaaaaaaaa"
+        question: "Which of the following HTML elements does NOT need a closing tag? ",
+        choice1: "<div>",
+        choice2: "<h1>",
+        choice3: "<img>",
+        choice4: "<button>",
+        answer: "<img>"
     },
 
     {
-        question: "b",
-        choice1: "aaaaaaaaaaaa",
-        choice2: "bbbbbbbbbbbb",
-        choice3: "ccccccccccccc",
-        choice4: "dddddddddddddd",
-        answer: "bbbbbbbbbbbb"
+        question: "What speficic CSS property would you use to center an element in it's parent element?",
+        choice1: "margin: 0 auto;",
+        choice2: "padding: 50px 50px;",
+        choice3: "position: relative;",
+        choice4: "margin: 0;",
+        answer: "margin: 0 auto;"
     },
     {
-        question: "c",
-        choice1: "aaaaaaaaaaaa",
-        choice2: "bbbbbbbbbbbb",
-        choice3: "ccccccccccccc",
-        choice4: "dddddddddddddd",
-        answer: "ccccccccccccc"
-    }
-
+        question: "In Javascript, what do we use to store multiple values in a single variable?",
+        choice1: "For Loops",
+        choice2: "Functions",
+        choice3: "Objects",
+        choice4: "Arrays",
+        answer: "Arrays"
+    },
+    {
+        question: "CSS Selector '.header' would style all elements with...",
+        choice1: "All elements within a <header> tag",
+        choice2: "Elements with class='header'",
+        choice3: "Just the <header> tag",
+        choice4: "Elements with id='header'",
+        answer: "Elements with class='header'"
+    },
+    {
+        question: "How would you call the function 'takeQuiz'",
+        choice1: "return takeQuiz",
+        choice2: "console.log(takeQuiz)",
+        choice3: "takeQuiz();",
+        choice4: "function takeQuiz() {}",
+        answer: "takeQuiz();"
+    },
+    {
+        question: "What would the CSS property 'color' affect?",
+        choice1: "The background color of the page",
+        choice2: "The color of the font on the whole page",
+        choice3: "The color of the font within that selector",
+        choice4: "The background color within that selector",
+        answer: "The color of the font within that selector"
+    },
+    {
+        question: "Which of these is an example of semantic HTML?",
+        choice1: "<div>",
+        choice2: "<section>",
+        choice3: "<p>",
+        choice4: "<body>",
+        answer: "<section>"
+    },
+    {
+        question: "Which JavaScript method can be used in place of a for loop?",
+        choice1: "forEach()",
+        choice2: "splice()",
+        choice3: "map()",
+        choice4: "push()",
+        answer: "forEach()"
+    },
+    {
+        question: "What does CDN stand for",
+        choice1: "Common Data Needs",
+        choice2: "Content Delivery Network",
+        choice3: "CSS Delivery Network",
+        choice4: "Coding Destination Niche",
+        answer: "Content Delivery Network"
+    },
+    {
+        question: "In which HTML tag would you put the link for an external CSS sheet?",
+        choice1: "<style>",
+        choice2: "<script>",
+        choice3: "<head>",
+        choice4: "<html>",
+        answer: "<head>"
+    },
+    {
+        question: "If you want your element to stay fixed on the page despite scrolling, you would use the position property with the value...",
+        choice1: "absolute",
+        choice2: "relative",
+        choice3: "static",
+        choice4: "fixed",
+        answer: "fixed"
+    },
+    {
+        question: "How would you get a random number between 1 and 8 in JavaScript?",
+        choice1: "Math.floor(Math.random() * 8)",
+        choice2: "getRandom(8);",
+        choice3: "Math.floor(Math.random())",
+        choice4: "num <= 8 && num >= 1",
+        answer: "Math.floor(Math.random() * 8)"
+    },
+    {
+        question: "Which HTML tag would you use to create a numbered list?",
+        choice1: "<ul>",
+        choice2: "<ol>",
+        choice3: "<li>",
+        choice4: "<input>",
+        answer: "<ol>"
+    },
+    {
+        question: "In the CSS Box Model, what does 'padding' refer to?",
+        choice1: "The area outside the border",
+        choice2: "The area between the border and the margin",
+        choice3: "The area between the content and the border",
+        choice4: "The area inside the content",
+        answer: "The area between the content and the border"
+    },
+    {
+        question: "What does DOM stand for?",
+        choice1: "Document Object Model",
+        choice2: "Destination Orientation Module",
+        choice3: "Document Operator Mechanism",
+        choice4: "Driven Object Meter",
+        answer: "Document Object Model"
+    },
+    
 ]
 
 
@@ -112,7 +208,7 @@ function alertTimer() {
 
 function rightAnswer() {
     score++;
-    valid.textContent = "YAY YOU!!"
+    valid.textContent = "YES! CORRECT!!!"
 }
 
 function wrongAnswer() {
@@ -138,7 +234,7 @@ function endMessage() {
     finalScore.style.display = "inline";
     title.textContent = "Game Over";
     question.textContent = "Well done! Your score is " + score
-        + "! Please enter your name and score below!";
+        + "! Please enter your name below!";
 
 }
 

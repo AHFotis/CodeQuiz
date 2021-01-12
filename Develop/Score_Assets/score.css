@@ -14,7 +14,7 @@ header {
 }
 
 .heading {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
 }
@@ -45,6 +45,7 @@ body {
     text-align: center;
     overflow: hidden;
     background: white;
+    position: relative;
 }
 
 .score-container {
@@ -58,6 +59,12 @@ body {
 }
 
 /* Button Styling */
+
+.score {
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
 
 #scoreBtn {
     height: 60px;
