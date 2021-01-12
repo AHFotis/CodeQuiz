@@ -38,14 +38,10 @@ body {
 }
 
 .box {
-    margin: 100px auto;
-    height: 500px;
-    width: 500px;
+    position: relative;
     border: 5px solid purple;
     text-align: center;
-    overflow: hidden;
     background: white;
-    position: relative;
 }
 
 .score-container {

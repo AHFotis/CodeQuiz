@@ -10,6 +10,7 @@ var answerThree = document.querySelector(".answerThree");
 var answerFour = document.querySelector(".answerFour");
 var valid = document.querySelector(".yes-no");
 
+var scoreAlert = document.querySelector(".scoreAlert");
 var finalScore = document.querySelector(".score");
 var submitScore = document.querySelector(".submit");
 var nameInput = document.querySelector(".name");
@@ -233,8 +234,8 @@ function endMessage() {
     answers.style.display = "none";
     finalScore.style.display = "inline";
     title.textContent = "Game Over";
-    question.textContent = "Well done! Your score is " + score
-        + "! Please enter your name below!";
+    question.innerHTML = "Well done! Your score is " + score
+        + "! Please enter your name below to save your score!";
 
 }
 

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
 
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Link Font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
@@ -23,28 +25,24 @@
     </header>
 
     <main>
-        <div class="box">
-            <h1 class="quiz-header">Quiz Your Code Knowledge</h1>
-            <div class="quiz-body">Ready to test your developer knowledge? Click the button below to take this quiz and see how high you can score!</div>
-            <button type="button" class="go" data-display="visible">QUIZ ME</button>
+        <div class="jumbotron box">
+            <h1 class="display-4 quiz-header">Quiz Your Code Knowledge</h1>
+            <div class="lead quiz-body"><span class="scoreAlert"></span>Ready to test your developer knowledge? Click the button below to take this quiz and see how high you can score!</div>
+            <button type="button" class="go" role="button">QUIZ ME</button>
 
             <!--Question Buttons-->
             <div class="answers">
-                <ul>
-                    <li>
+                
                         <button type="button" id ="ans" class="answerOne"></button>
-                    </li>
-                    <li>
+                    
                         <button type="button" id ="ans" class="answerTwo"></button>
-                    </li>
-                    <li>
+                   
                         <button type="button" id ="ans" class="answerThree"></button>
-                    </li>
-                    <li>
+                   
                         <button type="button" id ="ans" class="answerFour"></button>
-                    </li>
+                  
                     <div class="yes-no"></div>
-                </ul>
+             
                 
             </div>
             
@@ -61,6 +59,11 @@
 
     <!--JS-->
     <script src="Develop/Quiz_Assets/quiz.js"></script>
+    <!-- Bootstrap JS CDN-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
 
 </body>
 </html>
