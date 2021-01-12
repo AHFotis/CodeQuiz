@@ -34,7 +34,6 @@ body {
 }
 
 .box {
-    height: 600px;
     margin: 100px 100px;
     border: 5px solid purple;
     text-align: center;
@@ -53,10 +52,7 @@ body {
 }
 
 /* Button Styling */
-
-.score {
-    
-    bottom: 0;
+.score {  
     width: 100%
 }
 

@@ -9,14 +9,9 @@ header {
     background-color: white;
 }
 
-.nav {
-    display: inline;
-}
-
 .score-page {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 900;
-    display: inline;
 }
 
 a {
@@ -33,9 +28,8 @@ a:visited {
 }
 
 .timer {
-    display: inline;
     float: right;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -47,7 +41,6 @@ body {
 }
 
 .box {
-    height: 600px;
     margin: 100px 100px;
     border: 5px solid purple;
     text-align: center;
@@ -62,6 +55,11 @@ body {
 .quiz-body {
     padding: 70px 10px;
     font-size: 30px;
+}
+.yes-no {
+    font-size: 25px;
+    font-weight: bold;
+    color: purple;
 }
 
 /* Button Styling */
@@ -79,10 +77,6 @@ body {
     opacity: 75%;
 }
 
-.answers {
-    margin-bottom: 5px;
-}
-
 #ans {
     height: 40px;
     width: 400px;
@@ -98,18 +92,19 @@ body {
    opacity: 75%;
 }
 
-.yes-no {
-    font-size: 25px;
-    font-weight: bold;
-    color: purple;
-}
-
 /* Submit page */
 
 p {
     display: inline;
     font-size: 30px;
 }
+
+.name {
+    height: 30px;
+    width: 400px;
+    font-size: 18px;
+}
+
 .submit {
     display: block;
     height: 55px;
@@ -122,8 +117,17 @@ p {
     background-color: purple;
 }
 
-.name {
-    height: 30px;
-    width: 400px;
-    font-size: 18px;
+/* Media Queries */
+@media screen and (max-width: 683px) {
+    #ans {
+        width: 200px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    #ans {
+        width: 100px;
+        height: 80px;
+    }
 }

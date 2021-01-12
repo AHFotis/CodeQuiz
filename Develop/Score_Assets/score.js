@@ -3,7 +3,7 @@ var list = fullScores.split(" ");
 console.log(list);
 
 var scoreList = document.querySelector(".scores");
-var clear = document.querySelector(".submit");
+var clear = document.querySelector(".clear");
 
 
 function arrayClean() {
