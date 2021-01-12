@@ -9,14 +9,10 @@ header {
     background: white;
 }
 
-.nav {
-    display: inline;
-}
-
 .heading {
     font-size: 40px;
     font-weight: bold;
-    text-align: center;
+    margin: 0 auto;
 }
 
 a {
@@ -38,10 +34,12 @@ body {
 }
 
 .box {
-    position: relative;
+    height: 600px;
+    margin: 100px 100px;
     border: 5px solid purple;
     text-align: center;
-    background: white;
+    background-color: white;
+    position: relative;
 }
 
 .score-container {
@@ -49,7 +47,7 @@ body {
     font-size: 20px;
 }
 .score-list {
-    height: 20px;
+    height: 30px;
     background-color: rgb(209, 180, 209);
     text-align: left;
 }
@@ -57,7 +55,7 @@ body {
 /* Button Styling */
 
 .score {
-    position: absolute;
+    
     bottom: 0;
     width: 100%
 }

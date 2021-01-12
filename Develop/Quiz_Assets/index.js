@@ -321,5 +321,4 @@ submitScore.addEventListener("click", function () {
 
     localStorage.setItem("array", newArray);
     nameInput.value = " ";
-
 })
