@@ -10,7 +10,6 @@ var answerThree = document.querySelector(".answerThree");
 var answerFour = document.querySelector(".answerFour");
 var valid = document.querySelector(".yes-no");
 
-var scoreAlert = document.querySelector(".scoreAlert");
 var finalScore = document.querySelector(".score");
 var submitScore = document.querySelector(".submit");
 var nameInput = document.querySelector(".name");
@@ -18,7 +17,7 @@ var nameInput = document.querySelector(".name");
 
 var questionAnswer = [
     {
-        question: "Which of the following HTML elements does NOT need a closing tag? ",
+        question: "Which of the following HTML elements does NOT need a closing tag?",
         choice1: "<div>",
         choice2: "<h1>",
         choice3: "<img>",
@@ -43,15 +42,15 @@ var questionAnswer = [
         answer: "Arrays"
     },
     {
-        question: "CSS Selector '.header' would style all elements with...",
-        choice1: "All elements within a <header> tag",
-        choice2: "Elements with class='header'",
-        choice3: "Just the <header> tag",
-        choice4: "Elements with id='header'",
-        answer: "Elements with class='header'"
+        question: "CSS Selector '.header' would style all elements...",
+        choice1: "Inside a <header> tag",
+        choice2: "With the attribute class='header'",
+        choice3: "Inside an <h1> tag",
+        choice4: "With the attribute id='header'",
+        answer: "With the attribute class='header'"
     },
     {
-        question: "How would you call the function 'takeQuiz'",
+        question: "How would you call the function 'takeQuiz'?",
         choice1: "return takeQuiz",
         choice2: "console.log(takeQuiz)",
         choice3: "takeQuiz();",
@@ -155,7 +154,6 @@ finalScore.style.display = "none"
 function getCurrentQuiz() {
     currentQuiz.push(questionAnswer.sort(() => Math.random() - 0.5));
 }
-
 getCurrentQuiz();
 console.log(currentQuiz);
 
@@ -165,7 +163,7 @@ function beginTimer() {
         time--;
         counter.textContent = time;
 
-        if (time === 0 || time < 0) {
+        if (time === 0) {
             clearInterval(timerGo);
             endMessage();
         }
@@ -182,15 +180,11 @@ function beginTimer() {
 function displayQuestion(arr) {
     answers.style.display = "inline-block";
 
-    for (i = 0; i < 1; i++) {
-
         question.textContent = arr[0][0].question;
-
         answerOne.textContent = arr[0][0].choice1;
         answerTwo.textContent = arr[0][0].choice2;
         answerThree.textContent = arr[0][0].choice3;
         answerFour.textContent = arr[0][0].choice4;
-    }
 }
 
 function alertTimer() {
@@ -224,8 +218,15 @@ function wrongAnswer() {
 
 //Go to next question
 function nextQuestion() {
+    // var removed = currentQuiz[0].splice(0,1);
+   
     currentQuiz[0].push(currentQuiz[0].shift());
+    console.log(currentQuiz);
+    // if (currentQuiz.length === 1) {
+    //     endMessage();
+    // } else {}
     displayQuestion(currentQuiz);
+    
 }
 
 //Game Over
