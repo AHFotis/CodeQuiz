@@ -137,7 +137,7 @@ var questionAnswer = [
         choice4: "Driven Object Meter",
         answer: "Document Object Model"
     },
-    
+
 ]
 
 
@@ -180,11 +180,11 @@ function beginTimer() {
 function displayQuestion(arr) {
     answers.style.display = "inline-block";
 
-        question.textContent = arr[0][0].question;
-        answerOne.textContent = arr[0][0].choice1;
-        answerTwo.textContent = arr[0][0].choice2;
-        answerThree.textContent = arr[0][0].choice3;
-        answerFour.textContent = arr[0][0].choice4;
+    question.textContent = arr[0][0].question;
+    answerOne.textContent = arr[0][0].choice1;
+    answerTwo.textContent = arr[0][0].choice2;
+    answerThree.textContent = arr[0][0].choice3;
+    answerFour.textContent = arr[0][0].choice4;
 }
 
 function alertTimer() {
@@ -217,8 +217,8 @@ function wrongAnswer() {
 
 //Go to next question
 function nextQuestion() {
-    var removed = currentQuiz[0].splice(0,1);
-  
+    var removed = currentQuiz[0].splice(0, 1);
+
     // currentQuiz[0].push(currentQuiz[0].shift());
     console.log(currentQuiz);
     if (currentQuiz[0].length === 0) {
@@ -227,7 +227,7 @@ function nextQuestion() {
         time = 0;
         endMessage();
     } else {
-    displayQuestion(currentQuiz);
+        displayQuestion(currentQuiz);
     }
 }
 
@@ -240,10 +240,10 @@ function endMessage() {
 
     if (score > 0) {
         question.innerHTML = "Well done! Your score is " + score
-        + "! Please enter your name below to save your score!";
+            + "! Please enter your name below to save your score!";
     } else {
         question.innerHTML = "Oops! Your score is " + score
-        + "! Enter your name if you want to save it I guess...";
+            + "! Enter your name if you want to save it I guess...";
     }
 }
 
@@ -314,10 +314,35 @@ answerFour.addEventListener("click", function () {
     }
 })
 
+//doesn't return scores in order
+// submitScore.addEventListener("click", function () {
+
+//     var getName = localStorage.getItem("array");
+//     var name = " " + nameInput.value + "-" + score + " ";
+
+
+//     var newArray = [];
+
+//     if (getName !== null) {
+//         newArray.push(getName);
+//     }
+
+//     newArray.push(name);
+
+//     localStorage.setItem("array", newArray);
+//     nameInput.value = " ";
+// })
+
+
 submitScore.addEventListener("click", function () {
 
     var getName = localStorage.getItem("array");
-    var name = " " + nameInput.value + "-" + score + " ";
+
+    var userScore = [" " + score + "-" + nameInput.value + " "]
+
+
+    console.log(userScore);
+    console.log(getName);
 
     var newArray = [];
 
@@ -325,7 +350,8 @@ submitScore.addEventListener("click", function () {
         newArray.push(getName);
     }
 
-    newArray.push(name);
+    newArray.push(userScore);
+    console.log(newArray);
 
     localStorage.setItem("array", newArray);
     nameInput.value = " ";

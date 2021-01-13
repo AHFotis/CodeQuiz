@@ -128,6 +128,6 @@ p {
 @media screen and (max-width: 468px) {
     #ans {
         width: 100px;
-        height: 80px;
+        height: 100px;
     }
 }

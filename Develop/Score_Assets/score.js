@@ -6,16 +6,27 @@ var scoreList = document.querySelector(".scores");
 var clear = document.querySelector(".clear");
 
 
-function arrayClean() {
 
-    for (i = 0; i < list.length; i++) {
+function arrayClean(arr) {
 
-        if (list[i] === "," || list[i] === "") {
-            list.splice(i, 1);
+    for (i=0; i<arr.length; i++) {
+        console.log(arr[i])
+        // console.log(arr[i]);
+        if (arr[i] === ",") {
+            arr.splice(i, 1);
         }
-
+        if (arr[i] === "") {
+            arr.splice(i, 1);
     }
+    console.log(arr);
+}
+}
 
+function sortArray (arr) {
+    
+        arr.sort(function(a, b){return b-a});
+        console.log(arr);
+   
 }
 
 function newEntry(arr) {
@@ -23,6 +34,8 @@ function newEntry(arr) {
     for (i = 0; i < arr.length; i++) {
         var content = arr[i];
         console.log(arr[i]);
+
+        console.log(content)
         var entry = document.createElement("li");
         entry.setAttribute("class", "score-list");
         entry.setAttribute("style", "margin: 5px");
@@ -40,6 +53,7 @@ clear.addEventListener("click", function () {
 
 })
 
-arrayClean();
+arrayClean(list);
+sortArray(list);
 newEntry(list);
 
