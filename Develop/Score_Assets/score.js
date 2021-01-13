@@ -18,7 +18,6 @@ function arrayClean(arr) {
     }
 }
 
-
 //Sorts through array and returns it in descending order
 function sortArray(arr) {
 
@@ -37,7 +36,7 @@ function newEntry(arr) {
 
     for (i = 0; i < arr.length; i++) {
         var content = arr[i];
-        
+
         var entry = document.createElement("li");
         entry.setAttribute("class", "score-list");
         entry.setAttribute("style", "margin: 5px");

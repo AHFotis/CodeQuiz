@@ -1,3 +1,4 @@
+/* Full Page Font Styling */
 * {
     font-family: 'PT Sans Narrow', sans-serif;
 }
@@ -45,7 +46,6 @@ body {
     border: 5px solid purple;
     text-align: center;
     background-color: white;
-    position: relative;
 }
 
 .quiz-header {
@@ -56,6 +56,7 @@ body {
     padding: 70px 10px;
     font-size: 30px;
 }
+
 .yes-no {
     font-size: 25px;
     font-weight: bold;
@@ -93,7 +94,6 @@ body {
 }
 
 /* Submit page */
-
 p {
     display: inline;
     font-size: 30px;

@@ -41,6 +41,10 @@ body {
     position: relative;
 }
 
+.quiz-header {
+    font-size: 40px; 
+}
+
 .score-container {
     padding: 100px 10px;
     font-size: 20px;

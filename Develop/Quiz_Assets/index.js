@@ -214,7 +214,7 @@ function wrongAnswer() {
 //Go to next question
 function nextQuestion() {
     var removed = currentQuiz[0].splice(0, 1);
-   
+
     if (currentQuiz[0].length === 0) {
         score = time;
         answers.style.display = "none";
@@ -329,4 +329,3 @@ submitScore.addEventListener("click", function () {
     localStorage.setItem("array", newArray);
     nameInput.value = " ";
 })
-
