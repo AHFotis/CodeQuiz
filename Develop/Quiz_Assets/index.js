@@ -107,7 +107,7 @@ var questionAnswer = [
     },
     {
         question: "How would you get a random number between 1 and 8 in JavaScript?",
-        choice1: "Math.floor(Math.random() * 8)",
+        choice1: "Math.floor(Math.random() * 8) + 1",
         choice2: "getRandom(8);",
         choice3: "Math.floor(Math.random())",
         choice4: "num <= 8 && num >= 1",
@@ -218,15 +218,17 @@ function wrongAnswer() {
 
 //Go to next question
 function nextQuestion() {
-    // var removed = currentQuiz[0].splice(0,1);
-   
-    currentQuiz[0].push(currentQuiz[0].shift());
+    var removed = currentQuiz[0].splice(0,1);
+  
+    // currentQuiz[0].push(currentQuiz[0].shift());
     console.log(currentQuiz);
-    // if (currentQuiz.length === 1) {
-    //     endMessage();
-    // } else {}
+    if (currentQuiz[0].length === 0) {
+        answers.style.display = "none";
+        time = 0
+        endMessage();
+    } else {
     displayQuestion(currentQuiz);
-    
+    }
 }
 
 //Game Over
