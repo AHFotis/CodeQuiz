@@ -39,7 +39,7 @@ function newEntry(arr) {
 
         var entry = document.createElement("li");
         entry.setAttribute("class", "score-list");
-        entry.setAttribute("style", "margin: 5px");
+        entry.setAttribute("style", "margin: 0 auto; margin-top: 5px; margin-bottom: 5px; width: 50%");
         entry.textContent = content;
         scoreList.prepend(entry);
     }
