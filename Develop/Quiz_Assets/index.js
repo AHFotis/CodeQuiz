@@ -202,7 +202,6 @@ function alertTimer() {
 }
 
 function rightAnswer() {
-    score++;
     valid.textContent = "YES! CORRECT!!!"
 }
 
@@ -223,8 +222,9 @@ function nextQuestion() {
     // currentQuiz[0].push(currentQuiz[0].shift());
     console.log(currentQuiz);
     if (currentQuiz[0].length === 0) {
+        score = time;
         answers.style.display = "none";
-        time = 0
+        time = 0;
         endMessage();
     } else {
     displayQuestion(currentQuiz);
@@ -237,9 +237,14 @@ function endMessage() {
     answers.style.display = "none";
     finalScore.style.display = "inline";
     title.textContent = "Game Over";
-    question.innerHTML = "Well done! Your score is " + score
-        + "! Please enter your name below to save your score!";
 
+    if (score > 0) {
+        question.innerHTML = "Well done! Your score is " + score
+        + "! Please enter your name below to save your score!";
+    } else {
+        question.innerHTML = "Oops! Your score is " + score
+        + "! Enter your name if you want to save it I guess...";
+    }
 }
 
 //Event Listeners
