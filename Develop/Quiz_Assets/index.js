@@ -314,29 +314,14 @@ answerFour.addEventListener("click", function () {
     }
 })
 
-//doesn't return scores in order
-// submitScore.addEventListener("click", function () {
-
-//     var getName = localStorage.getItem("array");
-//     var name = " " + nameInput.value + "-" + score + " ";
-
-
-//     var newArray = [];
-
-//     if (getName !== null) {
-//         newArray.push(getName);
-//     }
-
-//     newArray.push(name);
-
-//     localStorage.setItem("array", newArray);
-//     nameInput.value = " ";
-// })
-
-
+// WORKS
 submitScore.addEventListener("click", function () {
 
     var getName = localStorage.getItem("array");
+
+    if (score < 10 && score > 0) {
+        score = "0" + score;
+    }
 
     var userScore = [" " + score + "-" + nameInput.value + " "]
 
@@ -356,3 +341,33 @@ submitScore.addEventListener("click", function () {
     localStorage.setItem("array", newArray);
     nameInput.value = " ";
 })
+
+// submitScore.addEventListener("click", function () {
+
+//         var getName = JSON.parse(localStorage.getItem("array"));
+    
+//         var userScore = {
+//             userName: nameInput.value,
+//             score: score,
+//         }
+    
+    
+//         console.log(userScore);
+//         console.log(getName);
+    
+//         var newArray = [];
+
+//         if (getName !== null) {
+//             getName.push(userScore);
+//             newArray.push(getName);
+//         } else {
+//             newArray.push(userScore);
+//         }
+
+    
+//         // newArray[0].push(userScore);
+//         console.log(newArray);
+    
+//         localStorage.setItem("array", JSON.stringify(newArray));
+//         nameInput.value = " ";
+//     })

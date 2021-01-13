@@ -24,9 +24,15 @@ function arrayClean(arr) {
 
 function sortArray (arr) {
     
-        arr.sort(function(a, b){return b-a});
-        console.log(arr);
-   
+        
+        arr.sort(function (a, b) {
+            if (a > b)
+              return 1;
+            if (a < b)
+              return -1;
+            return 0;
+        });
+   return arr;
 }
 
 function newEntry(arr) {
@@ -56,4 +62,3 @@ clear.addEventListener("click", function () {
 arrayClean(list);
 sortArray(list);
 newEntry(list);
-
