@@ -163,7 +163,7 @@ function beginTimer() {
         time--;
         counter.textContent = time;
 
-        if (time === 0) {
+        if (time === 0 || time <= 0) {
             clearInterval(timerGo);
             endMessage();
         }
