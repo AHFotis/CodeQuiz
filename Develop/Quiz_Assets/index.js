@@ -1,3 +1,5 @@
+
+//Collection of selectors
 var counter = document.querySelector(".countdown");
 var title = document.querySelector(".quiz-header");
 var question = document.querySelector(".quiz-body");
@@ -14,7 +16,7 @@ var finalScore = document.querySelector(".score");
 var submitScore = document.querySelector(".submit");
 var nameInput = document.querySelector(".name");
 
-
+//Array of question objects
 var questionAnswer = [
     {
         question: "Which of the following HTML elements does NOT need a closing tag?",
@@ -42,12 +44,12 @@ var questionAnswer = [
         answer: "Arrays"
     },
     {
-        question: "CSS Selector '.header' would style all elements...",
-        choice1: "Inside a <header> tag",
-        choice2: "With the attribute class='header'",
-        choice3: "Inside an <h1> tag",
-        choice4: "With the attribute id='header'",
-        answer: "With the attribute class='header'"
+        question: "A JavaScript Object gets wrapped in...",
+        choice1: "[ ]",
+        choice2: "{ }",
+        choice3: "( )",
+        choice4: "< >",
+        answer: "{ }"
     },
     {
         question: "How would you call the function 'takeQuiz'?",
@@ -60,10 +62,10 @@ var questionAnswer = [
     {
         question: "What would the CSS property 'color' affect?",
         choice1: "The background color of the page",
-        choice2: "The color of the font on the whole page",
-        choice3: "The color of the font within that selector",
+        choice2: "The color of the text on the whole page",
+        choice3: "The color of the text within that selector",
         choice4: "The background color within that selector",
-        answer: "The color of the font within that selector"
+        answer: "The color of the text within that selector"
     },
     {
         question: "Which of these is an example of semantic HTML?",
@@ -140,10 +142,11 @@ var questionAnswer = [
 
 ]
 
-
-var time = 60;
+//Golbal Variables
+var time = 75;
 var score = 0;
 
+//Page settings at start
 counter.textContent = time;
 answers.style.display = "none";
 var currentQuiz = [];
@@ -155,7 +158,7 @@ function getCurrentQuiz() {
     currentQuiz.push(questionAnswer.sort(() => Math.random() - 0.5));
 }
 getCurrentQuiz();
-console.log(currentQuiz);
+
 
 //Function to start timer
 function beginTimer() {
@@ -171,11 +174,6 @@ function beginTimer() {
     }, 1000)
 }
 
-
-//Tutor for: timer going below zero; clarifying how scoring should work, multiple names on scorelist
-//var removed = array.splice(0,2) = how to splice if you need that.
-
-
 //Display Questions
 function displayQuestion(arr) {
     answers.style.display = "inline-block";
@@ -187,6 +185,7 @@ function displayQuestion(arr) {
     answerFour.textContent = arr[0][0].choice4;
 }
 
+//Function for validation timer
 function alertTimer() {
     var buffer = 1;
     var reset = setInterval(function () {
@@ -201,10 +200,7 @@ function alertTimer() {
     }, 750)
 }
 
-function rightAnswer() {
-    valid.textContent = "YES! CORRECT!!!"
-}
-
+//Function for user wrong answer
 function wrongAnswer() {
     if (time <= 10) {
         time = 0;
@@ -218,9 +214,7 @@ function wrongAnswer() {
 //Go to next question
 function nextQuestion() {
     var removed = currentQuiz[0].splice(0, 1);
-
-    // currentQuiz[0].push(currentQuiz[0].shift());
-    console.log(currentQuiz);
+   
     if (currentQuiz[0].length === 0) {
         score = time;
         answers.style.display = "none";
@@ -240,7 +234,7 @@ function endMessage() {
 
     if (score > 0) {
         question.innerHTML = "Well done! Your score is " + score
-            + "! Please enter your name below to save your score!";
+            + "! Please enter your name below to save it to our High Scores page!";
     } else {
         question.innerHTML = "Oops! Your score is " + score
             + "! Enter your name if you want to save it I guess...";
@@ -258,7 +252,7 @@ go.addEventListener("click", function () {
 
 answerOne.addEventListener("click", function () {
     if (answerOne.textContent === currentQuiz[0][0].answer) {
-        rightAnswer();
+        valid.textContent = "YES! CORRECT!!!"
         alertTimer();
         nextQuestion();
 
@@ -274,7 +268,7 @@ answerOne.addEventListener("click", function () {
 
 answerTwo.addEventListener("click", function () {
     if (answerTwo.textContent === currentQuiz[0][0].answer) {
-        rightAnswer();
+        valid.textContent = "YES! CORRECT!!!"
         alertTimer();
         nextQuestion();
 
@@ -288,7 +282,7 @@ answerTwo.addEventListener("click", function () {
 
 answerThree.addEventListener("click", function () {
     if (answerThree.textContent === currentQuiz[0][0].answer) {
-        rightAnswer();
+        valid.textContent = "YES! CORRECT!!!"
         alertTimer();
         nextQuestion();
     }
@@ -301,7 +295,7 @@ answerThree.addEventListener("click", function () {
 
 answerFour.addEventListener("click", function () {
     if (answerFour.textContent === currentQuiz[0][0].answer) {
-        rightAnswer();
+        valid.textContent = "YES! CORRECT!!!"
         alertTimer();
         nextQuestion();
 
@@ -314,7 +308,7 @@ answerFour.addEventListener("click", function () {
     }
 })
 
-// WORKS
+//To save score 
 submitScore.addEventListener("click", function () {
 
     var getName = localStorage.getItem("array");
@@ -324,11 +318,6 @@ submitScore.addEventListener("click", function () {
     }
 
     var userScore = [" " + score + "-" + nameInput.value + " "]
-
-
-    console.log(userScore);
-    console.log(getName);
-
     var newArray = [];
 
     if (getName !== null) {
@@ -336,38 +325,8 @@ submitScore.addEventListener("click", function () {
     }
 
     newArray.push(userScore);
-    console.log(newArray);
 
     localStorage.setItem("array", newArray);
     nameInput.value = " ";
 })
 
-// submitScore.addEventListener("click", function () {
-
-//         var getName = JSON.parse(localStorage.getItem("array"));
-    
-//         var userScore = {
-//             userName: nameInput.value,
-//             score: score,
-//         }
-    
-    
-//         console.log(userScore);
-//         console.log(getName);
-    
-//         var newArray = [];
-
-//         if (getName !== null) {
-//             getName.push(userScore);
-//             newArray.push(getName);
-//         } else {
-//             newArray.push(userScore);
-//         }
-
-    
-//         // newArray[0].push(userScore);
-//         console.log(newArray);
-    
-//         localStorage.setItem("array", JSON.stringify(newArray));
-//         nameInput.value = " ";
-//     })
