@@ -60,12 +60,12 @@ var questionAnswer = [
         answer: "takeQuiz();"
     },
     {
-        question: "What would the CSS property 'color' affect?",
-        choice1: "The background color of the page",
-        choice2: "The color of the text on the whole page",
-        choice3: "The color of the text within that selector",
-        choice4: "The background color within that selector",
-        answer: "The color of the text within that selector"
+        question: "What JavaScript method would you use to add or change an attribute in an element?",
+        choice1: "element.getAttribute()",
+        choice2: "element.setAttribute()",
+        choice3: "element.querySelector()",
+        choice4: "element.getElementById()",
+        answer: "element.setAttribute()"
     },
     {
         question: "Which of these is an example of semantic HTML?",
@@ -92,12 +92,12 @@ var questionAnswer = [
         answer: "Content Delivery Network"
     },
     {
-        question: "In which HTML tag would you put the link for an external CSS sheet?",
-        choice1: "<style>",
-        choice2: "<script>",
-        choice3: "<head>",
-        choice4: "<html>",
-        answer: "<head>"
+        question: "Which JavaScript method adds one or more elements to the beginning of an array and returns the new length of the array?",
+        choice1: ".fill();",
+        choice2: "unshift()",
+        choice3: ".pop()",
+        choice4: ".slice()",
+        answer: "unshift()"
     },
     {
         question: "If you want your element to stay fixed on the page despite scrolling, you would use the position property with the value...",

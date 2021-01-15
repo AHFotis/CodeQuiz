@@ -41,7 +41,7 @@ body {
     position: relative;
 }
 
-.quiz-header {
+.score-header {
     font-size: 40px; 
 }
 
@@ -57,7 +57,7 @@ body {
 }
 
 /* Button Styling */
-.score {  
+.scoreButtons {  
     width: 100%
 }
 
