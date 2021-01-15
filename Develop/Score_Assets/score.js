@@ -9,12 +9,12 @@ var clear = document.querySelector(".clear");
 function arrayClean(arr) {
 
     for (i = 0; i < arr.length; i++) {
-        if (arr[i] === ",") {
+        if (arr[i] === "," || arr[i] === "") {
             arr.splice(i, 1);
         }
-        if (arr[i] === "") {
-            arr.splice(i, 1);
-        }
+        // if (arr[i] === "") {
+        //     arr.splice(i, 1);
+        // }
     }
 }
 
@@ -34,8 +34,8 @@ function sortArray(arr) {
 //Renders scorelist to page
 function newEntry(arr) {
 
-    for (i = 0; i < arr.length; i++) {
-        var content = arr[i];
+    for (j = 0; j < arr.length; j++) {
+        var content = arr[j];
 
         var entry = document.createElement("li");
         entry.setAttribute("class", "score-list");

@@ -139,18 +139,35 @@ var questionAnswer = [
         choice4: "Driven Object Meter",
         answer: "Document Object Model"
     },
+    {
+        question: "CSS Selector '.header' would style all elements...",
+        choice1: "Inside a <header> tag",
+        choice2: "With the attribute class='header'",
+        choice3: "Inside an <h1> tag",
+        choice4: "With the attribute id='header'",
+        answer: "With the attribute class='header'"
+    },
+    {
+        question: "What would the CSS property 'color' affect?",
+        choice1: "The background color of the page",
+        choice2: "The color of the text on the whole page",
+        choice3: "The color of the text within that selector",
+        choice4: "The background color within that selector",
+        answer: "The color of the text within that selector"
+    }
+
 
 ]
 
 //Golbal Variables
 var time = 75;
 var score = 0;
+var currentQuiz = [];
 
 //Page settings at start
 counter.textContent = time;
 answers.style.display = "none";
-var currentQuiz = [];
-finalScore.style.display = "none"
+finalScore.style.display = "none";
 
 
 //Function to set up order of questions per quiz
@@ -248,7 +265,6 @@ go.addEventListener("click", function () {
     beginTimer();
     displayQuestion(currentQuiz);
 })
-
 
 answerOne.addEventListener("click", function () {
     if (answerOne.textContent === currentQuiz[0][0].answer) {
