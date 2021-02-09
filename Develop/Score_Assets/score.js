@@ -12,9 +12,7 @@ function arrayClean(arr) {
         if (arr[i] === "," || arr[i] === "") {
             arr.splice(i, 1);
         }
-        // if (arr[i] === "") {
-        //     arr.splice(i, 1);
-        // }
+       
     }
 }
 

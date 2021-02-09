@@ -5,7 +5,9 @@ Studying coding? Feelin' lucky? Take this quiz!
 Check out the quiz in action [here](https://ahfotis.github.io/CodeQuizForTheCodeWiz/)
 
 ## Reference Image
-A photo of the homepage for reference ![Homepage](./Develop/Images/homepage.png)
+A photo of the homepage for reference 
+![Homepage](./Develop/Images/homepage.png)
+![Action](./Develop/Images/CodeQuiz.gif)
 
 ## Basic Function
 * The quiz asks the user a series of questions relatting to CSS, HTML, and JavaScript.
@@ -15,6 +17,9 @@ A photo of the homepage for reference ![Homepage](./Develop/Images/homepage.png)
     * If the user answers a question incorrectly, the timer reduces by ten seconds.
     * Score is determined by how many seconds are left on the timer when user finishes.
     * User can save highscore to be displayed on score page.
+
+## Technologies used
+HTML5, CSS, JavaScript, Bootstrap, Google Fonts
 
 ## Project Criteria
 ### User Story
@@ -42,6 +47,8 @@ THEN I can save my initials and my score
 ```
 ## Credits
 Project template provided by Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+Authored by Anna Hickey Fotis - annahickey2@gmail.com
 
 ## License
 MIT License
